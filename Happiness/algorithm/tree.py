@@ -27,10 +27,11 @@ paramters_grid = {'criterion':['gini', 'entropy'], 'max_depth':[2,4,6,8,10,12,16
                   'random_state':[0]}
 score_MSE = metrics.make_scorer(metrics.mean_squared_error)
 best = model_selection.GridSearchCV(tree.DecisionTreeClassifier(), param_grid=paramters_grid,
-                                    cv=100)
+                                    cv=100,scoring='neg_mean_squared_error')
 best.fit(train_x, train_y)
 print(best.best_estimator_)
 tree_estimator = best.best_estimator_
+print(best.best_score_)
 # tree_estimator = tree.DecisionTreeClassifier( criterion='gini',max_depth=2,min_samples_leaf=0.03,random_state=0)
 # result = model_selection.cross_validate(tree_estimator, train_x, train_y, cv=20)
 # # print(result)
