@@ -51,6 +51,7 @@ back = tree_estimator.predict(test_x)
 mse = metrics.mean_squared_error(back, test_y)
 print(mse)
 print(mse**2*len(test_y))
+#DT maxdep4,random_state0 score 0.916
 #生成上传的结果
 # test_abbr.dropna(axis=1,inplace=True)
 # test_abbr.drop(['survey_time'],axis=1,inplace=True)
